@@ -25,11 +25,11 @@ const generateFingerprint = (req) => {
 const getRefreshCookieOptions = () => {
   return {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
+    secure: true,
+    sameSite: 'None',
     signed: true,
     path: '/',
-    maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+    maxAge: 15 * 24 * 60 * 60 * 1000 // 15 days
   };
 };
 
@@ -37,8 +37,8 @@ const getRefreshCookieOptions = () => {
 const getAccessCookieOptions = () => {
   return {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
+    secure: true,
+    sameSite: 'None',
     signed: true,
     path: '/',
     maxAge: 15 * 60 * 1000 // 15 minutes
